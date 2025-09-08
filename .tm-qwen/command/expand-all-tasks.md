@@ -4,12 +4,6 @@ Expand all pending tasks that need subtasks.
 
 Intelligently expands all tasks that would benefit from breakdown.
 
-## Execution
-
-```bash
-task-master expand --all
-```
-
 ## Smart Selection
 
 Only expands tasks that:
@@ -37,11 +31,6 @@ Only expands tasks that:
    - Maintain task coherence
    - Update dependencies
 
-## Options
-
-- Add `force` to expand all regardless of complexity
-- Add `research` for enhanced AI analysis
-
 ## Results
 
 After bulk expansion:
@@ -49,4 +38,3 @@ After bulk expansion:
 - New subtask count
 - Updated complexity metrics
 - Suggested task order
-- 

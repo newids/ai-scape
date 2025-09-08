@@ -29,6 +29,7 @@ AI-Scape is a browser extension start page that serves as a centralized interfac
 - Real-time response display
 - Horizontal alignment of service panes
 - Each service runs individually
+- Services are aligned horizontally and run individually
 
 #### 5. Summary/Result Pane
 - Aggregated results from all configured services
@@ -40,6 +41,7 @@ AI-Scape is a browser extension start page that serves as a centralized interfac
 - User can change AI services from settings popup page
 - Service configuration options
 - Save and apply settings functionality
+- User can change those services from setting popup page
 
 ### Technical Requirements
 
@@ -82,6 +84,7 @@ AI-Scape is a browser extension start page that serves as a centralized interfac
 7. Responses are displayed in individual panes
 8. User clicks "Summarize" button
 9. Aggregated results displayed in summary pane
+- When user inputs their question, app injects the question to input box in those services, and clicks send icon or button
 
 ### Success Criteria
 - All AI services integrate successfully
