@@ -28,8 +28,8 @@ AI-Scape is a browser extension start page that serves as a centralized interfac
 - User-selectable service configuration
 - Real-time response display
 - Horizontal alignment of service panes
-- Each service runs individually
-- Services are aligned horizontally and run individually
+- Each service runs individually in an iframe
+- Services are aligned horizontally and run individually in iframes
 
 #### 5. Summary/Result Pane
 - Aggregated results from all configured services
@@ -55,6 +55,7 @@ AI-Scape is a browser extension start page that serves as a centralized interfac
    - API connectivity for ChatGPT, Claude, and Gemini
    - Request routing based on user configuration
    - Response aggregation logic
+   - Iframe-based service execution and communication
 
 3. **Input/Output Management**
    - Question input handling
@@ -79,9 +80,9 @@ AI-Scape is a browser extension start page that serves as a centralized interfac
 2. User logs in (if required)
 3. User enters question in input box
 4. User selects AI services to query
-5. System injects question into input boxes of selected services
-6. System clicks send buttons/icons on selected services
-7. Responses are displayed in individual panes
+5. System injects question into input boxes of selected services running in iframes
+6. System clicks send buttons/icons on selected services running in iframes
+7. Responses are displayed in individual panes within iframes
 8. User clicks "Summarize" button
 9. Aggregated results displayed in summary pane
 - When user inputs their question, app injects the question to input box in those services, and clicks send icon or button

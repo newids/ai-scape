@@ -1,4 +1,5 @@
 import React from 'react';
+import SettingsPopup from './Settings/SettingsPopup';
 
 const Header = () => {
   return (
@@ -17,9 +18,7 @@ const Header = () => {
           <button className="px-4 py-2 text-sm font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
             Login
           </button>
-          <button className="px-4 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors">
-            Settings
-          </button>
+          <SettingsPopup />
         </div>
       </div>
     </header>

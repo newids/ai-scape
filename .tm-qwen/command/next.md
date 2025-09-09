@@ -1,3 +1,5 @@
+Mark completed task on the @/Tasks.md , and proceed next uncompleted task
+
 Intelligently determine and prepare the next action based on comprehensive context.
 
 This enhanced version of 'next' considers:
@@ -10,6 +12,7 @@ This enhanced version of 'next' considers:
 ## Intelligent Next Action
 
 ### 1. **Context Gathering**
+
 Let me analyze the current situation:
 - Active tasks (in-progress)
 - Recently completed tasks

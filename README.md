@@ -1,6 +1,60 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+## AI-Scape - Browser Extension Start Page
+
+This project implements a browser extension start page that serves as a centralized interface for interacting with multiple AI services. It provides users with a unified experience to ask questions, receive responses from various LLMs, and view summarized results.
+
+### Project Overview
+
+AI-Scape is a browser extension start page that allows users to:
+- Interact with multiple AI services (ChatGPT, Claude, Gemini) simultaneously
+- Enter questions once and get responses from all configured services
+- View individual responses in dedicated panes
+- Configure API keys and preferences through a settings interface
+- Use iframe-based integration for service isolation
+
+### Key Features Implemented
+
+#### UI Components
+- Main header with navigation and settings access
+- Horizontal AI service panes for ChatGPT, Claude, and Gemini
+- Input area for user questions
+- Individual service components with loading states and responses
+- Settings popup for API key management and preferences
+
+#### Core Functionality
+- Multi-LLM API connectivity (ChatGPT, Claude, Gemini)
+- Iframe-based service implementation for isolation
+- Question injection into service inputs
+- Send button automation within iframes
+- Response aggregation and display
+- Settings persistence using local storage
+
+#### Technical Implementation
+- React components with TypeScript
+- Next.js app directory structure
+- Tailwind CSS for styling
+- Local storage integration for settings
+- Responsive design for all screen sizes
+
+### Project Structure
+
+```
+src/
+├── app/                    # Next.js app directory
+├── components/             # Reusable UI components
+│   ├── AIServicePane.tsx   # Individual service pane component
+│   ├── ChatGPTService.tsx  # ChatGPT integration
+│   ├── ClaudeService.tsx   # Claude integration
+│   ├── GeminiService.tsx   # Gemini integration
+│   ├── Header.tsx          # Main header component
+│   ├── QuestionInput.tsx   # Input area for questions
+│   └── Settings/           # Settings related components
+└── hooks/                  # Custom React hooks
+    └── useSettings.ts      # Settings management hook
+```
+
+### Getting Started
 
 First, run the development server:
 

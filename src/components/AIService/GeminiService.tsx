@@ -1,0 +1,89 @@
+"use client";
+
+import React, { useState, useEffect } from 'react';
+
+interface GeminiServiceProps {
+  question: string;
+  isActive: boolean;
+}
+
+const GeminiService: React.FC<GeminiServiceProps> = ({ question, isActive }) => {
+  const [response, setResponse] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (isActive && question.trim() !== '') {
+      setIsLoading(true);
+      setError(null);
+      
+      // Simulate API call to Gemini
+      const fetchGeminiResponse = async () => {
+        try {
+          // In a real implementation, this would be an actual API call
+          // Example: const response = await fetch('/api/gemini', { method: 'POST', body: JSON.stringify({ question }) });
+          
+          // Simulate network delay
+          await new Promise(resolve => setTimeout(resolve, 2000));
+          
+          // Mock response - in reality this would come from the Gemini API
+          const mockResponse = `This is a simulated response from Gemini for the question: "${question}". 
+          
+In a real implementation, this would be the actual response from the Gemini AI service. The response would include:
+- Context-aware answers based on the input question
+- Proper formatting and structure
+- Error handling for API failures
+- Loading states during processing`;
+          
+          setResponse(mockResponse);
+        } catch (err) {
+          setError('Failed to get response from Gemini. Please check your API key and connection.');
+          console.error('Gemini API error:', err);
+        } finally {
+          setIsLoading(false);
+        }
+      };
+
+      fetchGeminiResponse();
+    } else if (!isActive) {
+      setResponse(null);
+      setIsLoading(false);
+      setError(null);
+    }
+  }, [question, isActive]);
+
+  return (
+    <div className="p-4 rounded-lg border border-gray-200 bg-white dark:bg-gray-800">
+      <div className="flex justify-between items-center mb-3">
+        <h3 className="font-semibold text-lg text-purple-600 dark:text-purple-400">Gemini</h3>
+        {isLoading ? (
+          <span className="text-xs text-gray-500 dark:text-gray-400">Loading...</span>
+        ) : response ? (
+          <span className="text-xs text-green-600 dark:text-green-400">Complete</span>
+        ) : null}
+      </div>
+      
+      {error ? (
+        <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md">
+          <p className="text-sm text-red-700 dark:text-red-300">{error}</p>
+        </div>
+      ) : isLoading ? (
+        <div className="space-y-2">
+          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-5/6 animate-pulse"></div>
+          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4 animate-pulse"></div>
+        </div>
+      ) : response ? (
+        <div className="p-3 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-md">
+          <p className="text-sm text-gray-800 dark:text-gray-200 whitespace-pre-line">{response}</p>
+        </div>
+      ) : (
+        <p className="text-sm text-gray-500 dark:text-gray-400 italic">
+          {question.trim() ? 'Ready to process question' : 'Enter a question to get started'}
+        </p>
+      )}
+    </div>
+  );
+};
+
+export default GeminiService;
