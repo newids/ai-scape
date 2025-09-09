@@ -16,8 +16,8 @@ export default function Home() {
           <AIServicePane serviceName="Gemini" isActive={false} />
         </div>
         <QuestionInput />
-        <ClaudeService question="" isActive={false} />
-        <GeminiService question="" isActive={false} />
+        <ClaudeService question="" isActive={true} />
+        <GeminiService question="" isActive={true} />
       </main>
     </div>
   );

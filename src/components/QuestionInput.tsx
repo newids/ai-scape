@@ -1,26 +1,33 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { injectionService } from '@/lib/injectionService';
 
 const QuestionInput = () => {
   const [question, setQuestion] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle question submission
-    console.log('Question submitted:', question);
+    if (!question.trim()) return;
+
+    // Get active services - for now we'll assume all are active
+    const activeServices = ['ChatGPT', 'Claude', 'Gemini'];
+    
+    // Inject the question into all active services
+    const results = await injectionService.injectAndSubmit(question, activeServices);
+    
+    // Log results for debugging
+    results.forEach(result => {
+      if (result.success) {
+        console.log(result.message);
+      } else {
+        console.error(result.error);
+      }
+    });
+
+    // Clear the input after submission
     setQuestion('');
   };
-
-  // Propagate question to services when submitted
-  useEffect(() => {
-    if (question.trim() !== '') {
-      // In a real implementation, this would be handled by the service components
-      // For now we'll just log it for demonstration purposes
-      console.log('Propagating question to AI services:', question);
-    }
-  }, [question]);
 
   return (
     <div className="mb-8">
