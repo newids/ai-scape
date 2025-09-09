@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import { injectionService } from '@/lib/injectionService';
 
 interface ClaudeServiceProps {
   question: string;
@@ -49,6 +50,24 @@ In a real implementation, this would be the actual response from the Claude AI s
       setResponse(null);
       setIsLoading(false);
       setError(null);
+    }
+  }, [question, isActive]);
+
+  // Handle question injection from the main input
+  useEffect(() => {
+    if (isActive && question.trim() !== '') {
+      const injectQuestion = async () => {
+        try {
+          const result = await injectionService.injectQuestion('Claude', question);
+          if (!result.success) {
+            setError(result.error || 'Failed to inject question into Claude');
+          }
+        } catch (err) {
+          setError('Failed to inject question into Claude: ' + (err as Error).message);
+        }
+      };
+      
+      injectQuestion();
     }
   }, [question, isActive]);
 

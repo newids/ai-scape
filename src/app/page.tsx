@@ -2,8 +2,8 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import AIServicePane from "@/components/AIServicePane";
 import QuestionInput from "@/components/QuestionInput";
-import ChatGPTService from "@/components/ChatGPTService";
 import ClaudeService from "@/components/AIService/ClaudeService";
+import GeminiService from "@/components/AIService/GeminiService";
 
 export default function Home() {
   return (
@@ -16,8 +16,8 @@ export default function Home() {
           <AIServicePane serviceName="Gemini" isActive={false} />
         </div>
         <QuestionInput />
-        <ChatGPTService question="" isActive={true} />
         <ClaudeService question="" isActive={false} />
+        <GeminiService question="" isActive={false} />
       </main>
     </div>
   );

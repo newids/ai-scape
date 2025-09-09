@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { injectionService } from '@/lib/injectionService';
 
 const QuestionInput = () => {
   const [question, setQuestion] = useState('');
@@ -11,6 +12,15 @@ const QuestionInput = () => {
     console.log('Question submitted:', question);
     setQuestion('');
   };
+
+  // Propagate question to services when submitted
+  useEffect(() => {
+    if (question.trim() !== '') {
+      // In a real implementation, this would be handled by the service components
+      // For now we'll just log it for demonstration purposes
+      console.log('Propagating question to AI services:', question);
+    }
+  }, [question]);
 
   return (
     <div className="mb-8">
